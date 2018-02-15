@@ -7,7 +7,7 @@
     <title>Mes Devinettes</title>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" >
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="../assets/style.css"/>
 
 </head>
 <body>

@@ -6,6 +6,10 @@ class Routeur
 
     private $request;
 
+    private  $paths = array (
+                            'homepage.html' => array('controlleur' => 'homepage', 'action' => 'actionAccueil')
+                            );
+
     public function __construct($request)
     {
         $this->request = $request;
@@ -17,10 +21,19 @@ class Routeur
 
         $path = $this->request;
 
-        if(file_exists(CONTROLLER.'/'.$path.'.php'))
-        {
-            include(CONTROLLER.'/'.$path.'.php');
+
+        if(array_key_exists($path, $this->paths)) {
+            $controlleur = $this->paths[$path]['controlleur'];
+            $action = $this->paths[$path]['action'];
+
+            $ctrl = new $controlleur;
+            $ctrl->$action();
+
+        } else {
+            echo '404'; exit;
         }
+
+
     }
 
 

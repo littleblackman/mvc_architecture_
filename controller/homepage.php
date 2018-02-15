@@ -1,22 +1,33 @@
 <?php
 
-/*** accès au model ***/
-$query = "SELECT * FROM devinette";
-$bdd = new PDO("mysql:host=localhost;dbname=devinette;charset=utf8", "root", "root");
-$req = $bdd->prepare($query);
-$req->execute();
-while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+class homepage
+{
 
-    $devinette['id']         = $row['id'];
-    $devinette['name']       = $row['name'];
-    $devinette['question']   = $row['question'];
-    $devinette['answer']     = $row['answer'];
-    $devinette['created_at'] = $row['created_at'];
+    public function actionAccueil()
+    {
+        /*** accès au model ***/
+        $query = "SELECT * FROM devinette";
+        $bdd = new PDO("mysql:host=localhost;dbname=devinette;charset=utf8", "root", "root");
+        $req = $bdd->prepare($query);
+        $req->execute();
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
-    $devinettes[] = $devinette; // tableau de tableau
+            $devinette['id']         = $row['id'];
+            $devinette['name']       = $row['name'];
+            $devinette['question']   = $row['question'];
+            $devinette['answer']     = $row['answer'];
+            $devinette['created_at'] = $row['created_at'];
 
-};
+            $devinettes[] = $devinette; // tableau de tableau
 
-include(VIEW."homepage.php");
+        };
+
+        include(VIEW."homepage.php");
+    }
+
+
+
+}
+
 
 ;?>

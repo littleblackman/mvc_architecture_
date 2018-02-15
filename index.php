@@ -1,7 +1,7 @@
 <?php
 include_once('_config.php');
 
-include_once('lib/Routeur.php');
+MyAutoload::start();
 
 
 // si ma route/request est "homepage", alors je charge homepage

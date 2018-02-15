@@ -19,7 +19,6 @@ while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 };
 
 
-
 ;?>
 <!--- VIEW --->
 <?php include('_head.php');?>
